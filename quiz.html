@@ -1,0 +1,175 @@
+# Generate the quiz.html page
+quiz_html = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - Val's Revision</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="quiz-page">
+    <!-- Quiz Header -->
+    <header class="quiz-header">
+        <div class="quiz-header-left">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <div class="quiz-info">
+                <h2 id="quizTitle">Physics 101</h2>
+                <span class="quiz-subtitle">Val's Revision</span>
+            </div>
+        </div>
+        <div class="quiz-header-right">
+            <div class="timer-box">
+                <i class="fas fa-clock"></i>
+                <span id="timer">10:00</span>
+            </div>
+            <div class="progress-box">
+                <span id="questionCounter">1 / 20</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Quiz Container -->
+    <main class="quiz-container">
+        <!-- Progress Bar -->
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="question-card" id="questionCard">
+            <div class="question-number">
+                <span id="currentQNum">1</span>
+            </div>
+            <h3 class="question-text" id="questionText">Loading question...</h3>
+            
+            <div class="options-container" id="optionsContainer">
+                <!-- Options will be injected here -->
+            </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="quiz-nav">
+            <button class="nav-btn prev-btn" id="prevBtn" onclick="previousQuestion()" disabled>
+                <i class="fas fa-chevron-left"></i> Previous
+            </button>
+            <button class="nav-btn next-btn" id="nextBtn" onclick="nextQuestion()">
+                Next <i class="fas fa-chevron-right"></i>
+            </button>
+            <button class="nav-btn submit-btn" id="submitBtn" onclick="submitQuiz()" style="display:none;">
+                <i class="fas fa-check"></i> Submit
+            </button>
+        </div>
+
+        <!-- Question Navigator -->
+        <div class="question-navigator">
+            <p>Jump to question:</p>
+            <div class="question-dots" id="questionDots">
+                <!-- Dots will be injected here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Results Modal -->
+    <div id="resultsModal" class="modal results-modal">
+        <div class="modal-content results-content">
+            <div class="results-header">
+                <div class="results-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h2>Quiz Completed!</h2>
+            </div>
+            <div class="results-body">
+                <div class="score-circle">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="score-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="score-progress" id="scoreCircle" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="score-text">
+                        <span id="scorePercent">0%</span>
+                    </div>
+                </div>
+                <div class="score-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Correct</span>
+                        <span class="detail-value correct" id="correctCount">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Wrong</span>
+                        <span class="detail-value wrong" id="wrongCount">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Total</span>
+                        <span class="detail-value" id="totalCount">0</span>
+                    </div>
+                </div>
+                <div class="time-taken">
+                    <i class="fas fa-clock"></i>
+                    <span>Time taken: <strong id="timeTaken">0:00</strong></span>
+                </div>
+                <div class="performance-message" id="performanceMessage">
+                    Great job! Keep practicing!
+                </div>
+            </div>
+            <div class="results-footer">
+                <button class="btn btn-secondary" onclick="reviewAnswers()">
+                    <i class="fas fa-eye"></i> Review Answers
+                </button>
+                <button class="btn btn-primary" onclick="retakeQuiz()">
+                    <i class="fas fa-redo"></i> Retake Quiz
+                </button>
+                <a href="index.html" class="btn btn-secondary">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Review Modal -->
+    <div id="reviewModal" class="modal review-modal">
+        <div class="modal-content review-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-eye"></i> Review Answers</h3>
+                <button class="close-btn" onclick="closeReviewModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="reviewBody">
+                <!-- Review items will be injected here -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeReviewModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Time Up Modal -->
+    <div id="timeUpModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-hourglass-end"></i> Time's Up!</h3>
+            </div>
+            <div class="modal-body">
+                <p>Your time has expired. Your quiz will be submitted automatically.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="forceSubmit()">View Results</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize quiz when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initQuiz();
+        });
+    </script>
+</body>
+</html>'''
+
+with open(f"{output_dir}/quiz.html", "w", encoding="utf-8") as f:
+    f.write(quiz_html)
+
+print("quiz.html created successfully!")
