@@ -1,0 +1,436 @@
+# Update index.html with correct university name and mission
+index_html = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Val's Revision - Ace Your 101 & 102 Courses</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Val's Revision</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#subjects">Subjects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                <span>Trusted by 500+ Students</span>
+            </div>
+            <h1>Master Your <span class="gradient-text">101 & 102</span> Courses</h1>
+            <p class="hero-subtitle">Comprehensive quiz practice for Physics, Chemistry, Mathematics, Biology & English. 100+ questions per topic with timed assessments. Your path to a First Class Degree starts here!</p>
+            <div class="hero-buttons">
+                <a href="#subjects" class="btn btn-primary">
+                    <i class="fas fa-play"></i> Start Practicing
+                </a>
+                <a href="#about" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i> Learn More
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Courses</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1,000+</span>
+                    <span class="stat-label">Questions</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Students</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-card card-1">
+                <i class="fas fa-atom"></i>
+                <span>Physics</span>
+            </div>
+            <div class="floating-card card-2">
+                <i class="fas fa-flask"></i>
+                <span>Chemistry</span>
+            </div>
+            <div class="floating-card card-3">
+                <i class="fas fa-calculator"></i>
+                <span>Math</span>
+            </div>
+            <div class="floating-card card-4">
+                <i class="fas fa-dna"></i>
+                <span>Biology</span>
+            </div>
+            <div class="hero-illustration">
+                <div class="circle circle-1"></div>
+                <div class="circle circle-2"></div>
+                <div class="circle circle-3"></div>
+                <i class="fas fa-book-open main-icon"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects" class="subjects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Choose Your Subject</span>
+                <h2>Select a Course to Begin</h2>
+                <p>Each course contains 100+ practice questions covering all major topics</p>
+            </div>
+            
+            <div class="subjects-grid">
+                <!-- Physics -->
+                <div class="subject-card" data-subject="physics">
+                    <div class="subject-icon physics">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <h3>Physics</h3>
+                    <p>Mechanics, Electricity, Waves & Modern Physics</p>
+                    <div class="course-options">
+                        <button class="course-btn" onclick="startQuiz('physics101')">
+                            <span>PHYS 101</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="course-btn" onclick="startQuiz('physics102')">
+                            <span>PHYS 102</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Chemistry -->
+                <div class="subject-card" data-subject="chemistry">
+                    <div class="subject-icon chemistry">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Chemistry</h3>
+                    <p>Atomic Structure, Bonding, Reactions & Organic Chem</p>
+                    <div class="course-options">
+                        <button class="course-btn" onclick="startQuiz('chemistry101')">
+                            <span>CHEM 101</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="course-btn" onclick="startQuiz('chemistry102')">
+                            <span>CHEM 102</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mathematics -->
+                <div class="subject-card" data-subject="mathematics">
+                    <div class="subject-icon mathematics">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Mathematics</h3>
+                    <p>Algebra, Calculus, Vectors & Differential Equations</p>
+                    <div class="course-options">
+                        <button class="course-btn" onclick="startQuiz('math101')">
+                            <span>MATH 101</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="course-btn" onclick="startQuiz('math102')">
+                            <span>MATH 102</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Biology -->
+                <div class="subject-card" data-subject="biology">
+                    <div class="subject-icon biology">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3>Biology</h3>
+                    <p>Cell Biology, Genetics, Anatomy & Microbiology</p>
+                    <div class="course-options">
+                        <button class="course-btn" onclick="startQuiz('biology101')">
+                            <span>BIOL 101</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="course-btn" onclick="startQuiz('biology102')">
+                            <span>BIOL 102</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- English -->
+                <div class="subject-card" data-subject="english">
+                    <div class="subject-icon english">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>English</h3>
+                    <p>Grammar, Composition, Literature & Critical Writing</p>
+                    <div class="course-options">
+                        <button class="course-btn" onclick="startQuiz('english101')">
+                            <span>ENG 101</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button class="course-btn" onclick="startQuiz('english102')">
+                            <span>ENG 102</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Modal -->
+    <div id="quizModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Start Quiz</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="quiz-setup">
+                    <div class="setup-option">
+                        <label>Select Number of Questions:</label>
+                        <div class="option-buttons">
+                            <button class="opt-btn active" data-questions="20">20 Questions</button>
+                            <button class="opt-btn" data-questions="40">40 Questions</button>
+                        </div>
+                    </div>
+                    <div class="setup-info">
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <span id="timeInfo">10 minutes</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-random"></i>
+                            <span>Random questions from all topics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="beginQuiz()">
+                    <i class="fas fa-play"></i> Start Quiz
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h3>Valentine Godson Govina</h3>
+                        <p class="about-role">Founder & Educator</p>
+                        <div class="about-mission">
+                            <i class="fas fa-trophy"></i>
+                            <span>Mission: First Class Degree</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-badge">About Me</span>
+                    <h2>Passionate About Student Success</h2>
+                    <p>Hello! I'm <strong>Valentine Godson Govina</strong>, a dedicated student pursuing Health Science at <strong>Taraba State University</strong>. I hold my first degree from Delta State University, Nigeria.</p>
+                    <p>My mission is to help every student achieve a <strong>First Class Degree</strong>. I created <strong>Val's Revision</strong> because I understand the struggles students face with 100-level courses. This platform provides comprehensive practice questions to help you master your subjects and excel in your exams.</p>
+                    <p class="future-plans"><i class="fas fa-rocket"></i> <strong>Coming Soon:</strong> 200-level, 300-level, and 400-level courses as we grow together!</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>100+ Questions per Topic</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Timed Practice Sessions</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Detailed Explanations</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Instant Score Feedback</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Pricing</span>
+                <h2>Affordable Learning for Everyone</h2>
+                <p>Invest in your academic success</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Full Access</h3>
+                        <div class="price">
+                            <span class="currency">₦</span>
+                            <span class="amount">500</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>All 10 Courses (101 & 102)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>1,000+ Questions</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Timed Quizzes</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Detailed Explanations</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Progress Tracking</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>24/7 Access</span>
+                        </div>
+                        <div class="feature-item highlight">
+                            <i class="fas fa-star"></i>
+                            <span>Future: 200L, 300L, 400L</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-full" onclick="showPaymentModal()">
+                        <i class="fas fa-credit-card"></i> Subscribe Now
+                    </button>
+                </div>
+            </div>
+            <p class="pricing-note">Secure payment powered by Paystack. Cancel anytime.</p>
+        </div>
+    </section>
+
+    <!-- Payment Modal (Demo) -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content payment-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-lock"></i> Secure Payment</h3>
+                <button class="close-btn" onclick="closePaymentModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="payment-summary">
+                    <div class="payment-item">
+                        <span>Full Access Subscription</span>
+                        <span>₦500.00</span>
+                    </div>
+                    <div class="payment-item">
+                        <span>Duration</span>
+                        <span>1 Month</span>
+                    </div>
+                    <div class="payment-total">
+                        <span>Total</span>
+                        <span>₦500.00</span>
+                    </div>
+                </div>
+                <div class="payment-methods">
+                    <p>Select Payment Method:</p>
+                    <div class="method-buttons">
+                        <button class="method-btn active">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>Paystack</span>
+                        </button>
+                        <button class="method-btn">
+                            <i class="fas fa-university"></i>
+                            <span>Bank Transfer</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="payment-form">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" placeholder="Enter your phone number">
+                    </div>
+                </div>
+                <div class="payment-notice">
+                    <i class="fas fa-info-circle"></i>
+                    <span>This is a demo. Real payment integration requires a backend server.</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closePaymentModal()">Cancel</button>
+                <button class="btn btn-primary" onclick="processPayment()">
+                    <i class="fas fa-lock"></i> Pay ₦500
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Get in Touch</span>
+                <h2>Have Questions?</h2>
+                <p>Reach out for support or feedback</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>valentine.govina@email.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Taraba State, Nigeria</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-university"></i>
+                        <div>
+                            <h4>Education</h4>
+                            <p>Taraba State University - Health Science</p>
+                        </div>
+                    </div>
+                </div
